@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL 
+  db:
+    image: postgres:15
+    container_name: civa-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT_EXTERNAL}:${DB_PORT_INTERNAL}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./Backend/database/script.sql:/docker-entrypoint-initdb.d/script.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - civa-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: civa-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "5050:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - civa-network
+
+networks:
+  civa-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
