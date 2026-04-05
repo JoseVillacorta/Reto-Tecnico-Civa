@@ -1,0 +1,178 @@
+:root {
+    --color-civa-morado: rgb(87, 42, 133);
+    /* Color Principal */
+    --color-civa-rosa-fuerte: rgb(231, 38, 122);
+    /* Acentos */
+    --color-civa-rosa-claro: rgb(226, 178, 212);
+    /* UI secundario */
+}
+
+.table-container {
+    width: 90%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: var(--color-civa-morado);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 25px;
+    text-align: left;
+    border-bottom: 3px solid var(--color-civa-rosa-fuerte);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.bus-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    ;
+}
+
+.bus-table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #dee2e6;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.bus-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #212529;
+    text-align: center;
+}
+
+.bus-table tr:hover {
+    background-color: #fcfcfc;
+}
+
+.badge-placa {
+    background-color: var(--color-civa-morado);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.status-active {
+    color: #28a745;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.status-inactive {
+    color: #dc3545;
+    background: #fdecea;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.btn-detail {
+    background-color: var(--color-civa-morado);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+    background-color: var(--color-civa-rosa-fuerte);
+    transform: translateY(-2px);
+}
+
+.pagination {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pagination button {
+    padding: 8px 18px;
+    border: 2px solid var(--color-civa-morado);
+    background: white;
+    color: var(--color-civa-morado);
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: var(--color-civa-morado);
+    color: white;
+}
+
+.pagination button:disabled {
+    background: #f5f5f5;
+    border-color: #ddd;
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-weight: bold;
+    color: var(--color-civa-morado);
+    font-size: 1rem;
+    padding: 0 15px;
+}
+
+.detail-view {
+    max-width: 600px;
+    text-align: left;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+.detail-grid p {
+    margin: 0;
+    padding: 12px 15px;
+    background: #fdfdfd;
+    border-left: 5px solid var(--color-civa-morado);
+    color: #212529;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.detail-grid strong {
+    color: var(--color-civa-morado);
+    margin-right: 5px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 20px 0;
+}
+
+.loader {
+    color: var(--color-civa-morado);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
