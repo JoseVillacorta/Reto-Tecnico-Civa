@@ -29,4 +29,15 @@ public class BusController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(busService.findAll(pageable));
     }
+    /**
+     * GET /bus/{id}
+     * Obtiene los detalles de un bus específico por su ID.
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<BusDTO> getBusById(@PathVariable Long id) {
+        return busService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 }
